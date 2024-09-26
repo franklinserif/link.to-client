@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "link to",
+  title: "link-to",
   description: "generate short links for yours links",
 };
 
