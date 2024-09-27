@@ -1,0 +1,20 @@
+import { FC } from "react";
+import { Navbar } from "@components/Navbar";
+import { ShootingStars } from "@components/ShootingStars";
+import { StarsBackground } from "@components/StarsBackground";
+import { LinkShortenerSection } from "@components/LinkShortener/LinkShortenerSection";
+import { TriangleSeparator } from "@components/TriangleSeparator";
+
+export const Header: FC = () => {
+  return (
+    <div className="flex justify-center flex-col items-center w-full ">
+      <Navbar />
+      <LinkShortenerSection />
+      <ShootingStars />
+      <StarsBackground />
+      <div className="mt-[100px]"></div>
+      <TriangleSeparator />
+      <div className="h-[100px] w-full bg-white"></div>
+    </div>
+  );
+};
