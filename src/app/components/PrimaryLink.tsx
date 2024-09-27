@@ -22,7 +22,7 @@ export const PrimaryLink: FC<Props> = ({
         "box-border text-secondary font-sans cursor-pointer hover:text-secondary/90 transition-colors text-nowrap",
         className,
         {
-          "px-[50px] py-[7px] rounded-full border-[1px] border-secondary hover:bg-secondary/50":
+          "px-[50px] py-[7px] rounded-full border-[1px] border-secondary hover:bg-secondary/70 hover:text-main":
             secondary,
         }
       )}
