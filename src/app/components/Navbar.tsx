@@ -17,7 +17,7 @@ export const Navbar: FC = () => {
 
   return (
     <div className="w-full flex flex-col items-center">
-      <nav className="flex items-center lg:mt-[50px] py-10 lg:py-0 w-full h-[40px] max-w-[1181px] px-5 box-border shadow-lg lg:shadow-none">
+      <nav className="flex items-center lg:mt-[50px] py-8 lg:py-0 w-full h-[30px] max-w-[1181px] px-5 box-border shadow-lg lg:shadow-none">
         <ul className="flex mr-auto lg:mr-[81px] items-center">
           <li>
             <Logo />
@@ -43,8 +43,8 @@ export const Navbar: FC = () => {
             <Button onClick={handleResponiveMenu}>
               <Image
                 src="/menu-icon.svg"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
                 alt="hamburger menu"
               />
             </Button>
@@ -53,20 +53,20 @@ export const Navbar: FC = () => {
       </nav>
       <div
         className={cn(
-          "absolute block lg:hidden bg-[#151d35] left-[-100%] transition-transform shadow-lg",
+          "absolute block lg:hidden bg-[#151d35] inset-y-0 right-0 left-[100%] transition-all duration-300 shadow-lg",
           {
-            "inset-0 left-[50%]": isResponsiveMenuOpen,
+            "inset-y-0 right-0 left-[50%]": isResponsiveMenuOpen,
           }
         )}
       >
-        <ul className="flex flex-col items-end">
-          <div className="mt-[50px]"></div>
+        <ul className="flex flex-col justify-center">
+          <div className="mt-[18px]"></div>
           <li className="w-full pl-10">
             <Button onClick={handleResponiveMenu}>
               <Image
                 src="/x-menu.svg"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
                 alt="hamburger menu"
               />
             </Button>
@@ -75,7 +75,7 @@ export const Navbar: FC = () => {
           {MAIN_MENU.map((link) => (
             <li
               key={link.id}
-              className="py-4 px-10 w-full text-lg border-b-[1px] border-[#15234d] hover:bg-secondary/10"
+              className="py-4 px-10 w-full text-lg text-right border-b-[1px] border-[#15234d] hover:bg-secondary/10"
             >
               <PrimaryLink href={link.href}>{link.text}</PrimaryLink>
             </li>
