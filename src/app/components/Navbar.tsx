@@ -16,8 +16,8 @@ export const Navbar: FC = () => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <nav className="flex items-center lg:mt-[50px] py-8 lg:py-0 w-full h-[30px] max-w-[1181px] px-5 box-border shadow-lg lg:shadow-none">
+    <div className="relative z-20 w-full flex flex-col items-center">
+      <nav className="flex items-center lg:mt-[50px] py-8 lg:py-0 w-full h-[30px] max-w-[1181px] px-5 bg-main md:md-transparent box-border shadow-2xl lg:shadow-none">
         <ul className="flex mr-auto lg:mr-[81px] items-center">
           <li>
             <Logo />
@@ -53,13 +53,13 @@ export const Navbar: FC = () => {
       </nav>
       <div
         className={cn(
-          "absolute block lg:hidden bg-[#151d35] inset-y-0 right-0 left-[100%] transition-all duration-300 shadow-lg",
+          "absolute lg:hidden bg-[#151d35] top-0 bottom-0 right-0 left-[100%] transition-all duration-300 shadow-lg z-50 h-[100vh] overflow-x-hidden",
           {
-            "inset-y-0 right-0 left-[50%]": isResponsiveMenuOpen,
+            "top-0 bottom-0 right-0 left-[50%]": isResponsiveMenuOpen,
           }
         )}
       >
-        <ul className="flex flex-col justify-center">
+        <ul className="flex flex-col justify-center bg-[#151d35] ">
           <div className="mt-[18px]"></div>
           <li className="w-full pl-10">
             <Button onClick={handleResponiveMenu}>
