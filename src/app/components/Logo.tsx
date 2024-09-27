@@ -3,15 +3,8 @@ import Image from "next/image";
 
 export const Logo: FC = () => {
   return (
-    <div>
-      <Image
-        src="/logo.png"
-        alt="link-to"
-        height={40}
-        width={153}
-        priority
-        style={{ width: 153, height: 40 }}
-      />
+    <div className="relative h-[30px] w-[120px] md:h-[40px] md:w-[152px]">
+      <Image src="/logo.svg" alt="link-to" layout="fill" objectFit="contain" />
     </div>
   );
 };
