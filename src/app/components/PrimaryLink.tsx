@@ -6,6 +6,7 @@ interface Props {
   href: string;
   children: React.ReactNode;
   secondary?: boolean;
+  third?: boolean;
   className?: string;
 }
 
@@ -13,6 +14,7 @@ export const PrimaryLink: FC<Props> = ({
   href,
   children,
   secondary = false,
+  third = false,
   className = "",
 }) => {
   return (
@@ -24,6 +26,8 @@ export const PrimaryLink: FC<Props> = ({
         {
           "px-[50px] py-[7px] rounded-full border-[1px] border-secondary hover:bg-secondary/70 hover:text-main":
             secondary,
+          "px-[50px] py-[7px] rounded-full border-[1px] border-pinkRed bg-pinkRed hover:bg-pinkRed/40 text-white hover:text-pinkRed":
+            third,
         }
       )}
     >
