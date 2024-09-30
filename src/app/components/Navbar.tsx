@@ -16,7 +16,7 @@ export const Navbar: FC = () => {
   };
 
   return (
-    <div className="relative z-20 w-full flex flex-col items-center">
+    <div className="z-30 w-full flex flex-col items-center">
       <nav className="flex items-center lg:mt-[50px] py-8 lg:py-0 w-full h-[30px] max-w-[1181px] px-5 bg-main md:md-transparent box-border shadow-2xl lg:shadow-none">
         <ul className="flex mr-auto lg:mr-[81px] items-center">
           <li>
@@ -42,7 +42,7 @@ export const Navbar: FC = () => {
           <li className="block lg:hidden">
             <Button onClick={handleResponiveMenu}>
               <Image
-                src="/menu-icon.svg"
+                src={isResponsiveMenuOpen ? "/x-menu.svg" : "/menu-icon.svg"}
                 width={30}
                 height={30}
                 alt="hamburger menu"
@@ -53,24 +53,14 @@ export const Navbar: FC = () => {
       </nav>
       <div
         className={cn(
-          "absolute lg:hidden bg-[#151d35] top-0 bottom-0 right-0 left-[100%] transition-all duration-300 shadow-lg z-50 h-[100vh] overflow-x-hidden",
+          "absolute lg:hidden bg-main top-0 right-0 left-0 bottom-[100%] transition-all duration-300 shadow-lg z-[100] opacity-0  overflow-hidden shadow-xl",
           {
-            "top-0 bottom-0 right-0 left-[50%]": isResponsiveMenuOpen,
+            "top-[64px] right-0 left-0 bottom-[69%] opacity-[100%]":
+              isResponsiveMenuOpen,
           }
         )}
       >
-        <ul className="flex flex-col justify-center bg-[#151d35] ">
-          <div className="mt-[18px]"></div>
-          <li className="w-full pl-10">
-            <Button onClick={handleResponiveMenu}>
-              <Image
-                src="/x-menu.svg"
-                width={30}
-                height={30}
-                alt="hamburger menu"
-              />
-            </Button>
-          </li>
+        <ul className="flex flex-col justify-center bg-main ">
           <div className="mt-[20px]"></div>
           {MAIN_MENU.map((link) => (
             <li
