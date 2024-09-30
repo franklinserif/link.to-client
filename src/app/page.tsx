@@ -1,11 +1,13 @@
 import { Header } from "@components/Header";
-import { Hero } from "@components/Hero";
+import { HomePageContent } from "@components/HomePage";
+import { Footer } from "@components/Footer";
 
 export default function Home() {
   return (
     <div className="flex justify-center flex-col w-full ">
       <Header />
-      <Hero />
+      <HomePageContent />
+      <Footer />
     </div>
   );
 }
