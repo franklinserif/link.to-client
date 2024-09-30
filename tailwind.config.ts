@@ -21,6 +21,7 @@ module.exports = {
       colors: {
         main: "#172755",
         mainDarked: "#0c1736",
+        mainDeepDarked: "#0F1F4B",
         secondary: "#8794BA",
         background: "var(--background)",
         foreground: "var(--foreground)",
