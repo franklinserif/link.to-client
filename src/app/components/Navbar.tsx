@@ -53,7 +53,7 @@ export const Navbar: FC = () => {
       </nav>
       <div
         className={cn(
-          "absolute lg:hidden bg-main top-0 right-0 left-0 bottom-[100%] transition-all duration-300 shadow-lg z-[100] opacity-0  overflow-hidden shadow-xl",
+          "absolute lg:hidden bg-main top-0 right-0 left-0 bottom-[100%] transition-all duration-300 z-[100] opacity-0  overflow-hidden shadow-xl",
           {
             "top-[64px] right-0 left-0 bottom-[69%] opacity-[100%]":
               isResponsiveMenuOpen,
