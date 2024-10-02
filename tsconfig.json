@@ -24,7 +24,8 @@
       "@interfaces/*": ["./src/app/interfaces/*"],
       "@hooks/*": ["./src/app/components/*"],
       "@store/*": ["./src/app/store/*"],
-      "@libs/*": ["./src/app/libs/*"]
+      "@libs/*": ["./src/app/libs/*"],
+      "@schemas/*": ["./src/app/schemas/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
