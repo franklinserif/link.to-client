@@ -9,15 +9,16 @@ interface Props {
 }
 
 export const LinkShortener: FC<Props> = async ({ id }) => {
-  let link: Link | undefined = undefined;
+  let link: Link | null = null;
 
   if (id) {
-    link = await HTTPLinks.getLink(id);
+    const [linkInformation, _] = await HTTPLinks.getLink(id);
+    link = linkInformation;
   }
 
   return (
     <section className="mt-20 max-w-[900px] w-full h-[600px] flex justify-center items-center flex-col">
-      {link?.id ? (
+      {link ? (
         <LinkShortCard link={link} />
       ) : (
         <>
