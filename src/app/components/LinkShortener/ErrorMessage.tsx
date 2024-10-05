@@ -23,7 +23,7 @@ export const ErrorMessage: FC<Props> = ({ error, onCleanError = () => {} }) => {
             Ooops
           </span>
           <span className="text-main font-sans text-lg">
-            Must provide a valid url
+            {error.message || " Must provide a valid url"}
           </span>
         </div>
       </div>
