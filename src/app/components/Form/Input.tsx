@@ -8,6 +8,5 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export const Input: FC<Props> = ({ register, error, className, ...props }) => {
-  console.log("error: ", error);
   return <input {...props} {...register} className={cn(className)} />;
 };
