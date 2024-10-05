@@ -20,9 +20,7 @@ export const LinkShortenerForm: FC = () => {
     resolver: zodResolver(linkShortenerFormSchema),
   });
 
-  const onSubmit: SubmitHandler<TLinkShortenerForm> = (data) => {
-    console.log("linkInput: ", data);
-  };
+  const onSubmit: SubmitHandler<TLinkShortenerForm> = (data) => {};
 
   return (
     <form
