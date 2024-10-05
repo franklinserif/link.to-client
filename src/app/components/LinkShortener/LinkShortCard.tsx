@@ -1,56 +1,83 @@
+"use client";
+
 import { FC } from "react";
 import QRCode from "react-qr-code";
+import { motion } from "framer-motion";
 import { IoCopyOutline } from "react-icons/io5";
 import { BsCloudDownload } from "react-icons/bs";
-import { PrimaryLink } from "../PrimaryLink";
+import { PrimaryLink } from "@components/PrimaryLink";
+import { SimplefyTooltip } from "@components/SimplefiyTooltip";
+import { formatDate } from "@libs/date";
+import { Link } from "@interfaces/entities";
 
-export const LinkShortCard: FC = () => {
+interface Props {
+  link: Link;
+}
+
+export const LinkShortCard: FC<Props> = ({ link }) => {
   return (
     <div className="w-full flex justify-center items-center z-10 px-5">
-      <div className="w-full max-w-[420px] bg-secondary/40 p-5 flex flex-col justify-start items-center rounded-xl">
-        <button className="cursor-pointer relative group mt-5">
-          <QRCode
-            value="https://link-to.com/x2ddsl"
-            bgColor="#ff00"
-            style={{
-              width: "100%",
-              height: "100%",
-              maxWidth: 170,
-              maxHeight: 170,
-            }}
-          />
-          <BsCloudDownload
-            size={20}
-            className="absolute top-0 right-[-42px] text-mainDeepDarked group-hover:text-pinkRed transition-colors hidden sm:block"
-          />
-        </button>
+      <motion.div
+        className="relative w-full max-w-[420px] bg-secondary/40 p-5 flex flex-col justify-start items-center rounded-xl"
+        initial={{ opacity: 0, top: 100 }}
+        animate={{ opacity: 1, top: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="cursor-pointer relative group mt-5">
+          <SimplefyTooltip
+            side="right"
+            content="copy"
+            className="relative top-[-75px] right-[-42px]"
+          >
+            <QRCode
+              value={`linkto.com/links/${link.shortURL}`}
+              bgColor="#ff00"
+              style={{
+                width: "100%",
+                height: "100%",
+                maxWidth: 170,
+                maxHeight: 170,
+              }}
+            />
+            <BsCloudDownload
+              size={20}
+              className="absolute top-0 right-[-42px] text-mainDeepDarked group-hover:text-pinkRed transition-colors hidden sm:block"
+            />
+          </SimplefyTooltip>
+        </div>
         <div className="h-[1px] w-full px-5 bg-main/30 my-5"></div>
-        <button className="text-lg sm:text-2xl font-sans text-white/70 font-medium relative group">
-          link-to.com/x2ddsl
-          <IoCopyOutline
-            size={20}
-            className="absolute top-1 right-[-35px] text-mainDeepDarked group-hover:text-pinkRed transition-colors hidden sm:block"
-          />
-        </button>
+        <div className="text-lg sm:text-xl font-sans text-white/70 font-medium relative group">
+          <SimplefyTooltip
+            side="right"
+            content="copy"
+            className="relative right-[-35px]"
+          >
+            {`linkto.com/${link.shortURL}`}
+            <IoCopyOutline
+              size={20}
+              className="absolute top-1 right-[-35px] text-mainDeepDarked group-hover:text-pinkRed transition-colors hidden sm:block"
+            />
+          </SimplefyTooltip>
+        </div>
         <div className="h-[1px] w-full px-5 bg-main/30 my-5"></div>
-        <div className="flex flex-wrap gap-x-5 text-sm font-bold uppercase text-white/40 font-sans justify-center items-center">
+        <div className="flex flex-col gap-x-5 text-sm font-bold uppercase text-white/40 font-sans justify-center items-center">
           <p className="flex flex-wrap justify-center items-center">
             <span className="text-mainDeepDarked min-w-[100px]">
               created at:{" "}
             </span>
-            mon 20, oct 2024
+            {formatDate(new Date(link.createdAt))}
           </p>
           <p className="flex flex-wrap justify-center items-center">
-            <span className="text-mainDeepDarked  min-w-[100px]">
+            <span className="text-mainDeepDarked min-w-[100px]">
               expire in:{" "}
             </span>
-            mon 20, oct 2025
+            {formatDate(new Date(link.expirationDate))}
           </p>
         </div>
         <div className="h-[1px] w-full px-5 bg-main/30 my-5"></div>
 
         <PrimaryLink href="/">Try another link!</PrimaryLink>
-      </div>
+      </motion.div>
     </div>
   );
 };
