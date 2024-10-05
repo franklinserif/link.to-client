@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { IoCopyOutline } from "react-icons/io5";
 import { BsCloudDownload } from "react-icons/bs";
 import { PrimaryLink } from "@components/PrimaryLink";
-import { SimplefyTooltip } from "@components/SimplefiyTooltip";
+import { CoopyTooltip } from "@/app/components/CopyTooltip";
 import { formatDate } from "@libs/date";
 import { Link } from "@interfaces/entities";
 
@@ -24,10 +24,11 @@ export const LinkShortCard: FC<Props> = ({ link }) => {
         transition={{ duration: 0.5 }}
       >
         <div className="cursor-pointer relative group mt-5">
-          <SimplefyTooltip
+          <CoopyTooltip
             side="right"
             content="copy"
             className="relative top-[-75px] right-[-42px]"
+            clipboardText={`linkto.com/${link.shortURL}`}
           >
             <QRCode
               value={`linkto.com/links/${link.shortURL}`}
@@ -43,21 +44,22 @@ export const LinkShortCard: FC<Props> = ({ link }) => {
               size={20}
               className="absolute top-0 right-[-42px] text-mainDeepDarked group-hover:text-pinkRed transition-colors hidden sm:block"
             />
-          </SimplefyTooltip>
+          </CoopyTooltip>
         </div>
         <div className="h-[1px] w-full px-5 bg-main/30 my-5"></div>
         <div className="text-lg sm:text-xl font-sans text-white/70 font-medium relative group">
-          <SimplefyTooltip
+          <CoopyTooltip
             side="right"
             content="copy"
             className="relative right-[-35px]"
+            clipboardText={`linkto.com/${link.shortURL}`}
           >
             {`linkto.com/${link.shortURL}`}
             <IoCopyOutline
               size={20}
               className="absolute top-1 right-[-35px] text-mainDeepDarked group-hover:text-pinkRed transition-colors hidden sm:block"
             />
-          </SimplefyTooltip>
+          </CoopyTooltip>
         </div>
         <div className="h-[1px] w-full px-5 bg-main/30 my-5"></div>
         <div className="flex flex-col gap-x-5 text-sm font-bold uppercase text-white/40 font-sans justify-center items-center">
