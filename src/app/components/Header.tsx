@@ -2,14 +2,17 @@ import { FC } from "react";
 import { Navbar } from "@components/Navbar";
 import { ShootingStars } from "@components/ShootingStars";
 import { StarsBackground } from "@components/StarsBackground";
-import { LinkShortenerSection } from "@components/LinkShortener/LinkShortenerSection";
 import { TriangleSeparator } from "@components/TriangleSeparator";
 
-export const Header: FC = () => {
+interface Props {
+  children: React.ReactNode;
+}
+
+export const Header: FC<Props> = ({ children }) => {
   return (
     <div className="flex justify-center flex-col items-center w-full ">
       <Navbar />
-      <LinkShortenerSection />
+      {children}
       <ShootingStars />
       <StarsBackground />
       <div className="mt-[100px]"></div>
