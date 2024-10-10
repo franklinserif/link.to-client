@@ -28,10 +28,10 @@ export const LinkShortCard: FC<Props> = ({ link }) => {
             side="right"
             content="copy"
             className="relative top-[-75px] right-[-42px]"
-            clipboardText={`linkto.com/${link.shortURL}`}
+            clipboardText={`link-to-api.onrender.com/${link.shortURL}`}
           >
             <QRCode
-              value={`linkto.com/links/${link.shortURL}`}
+              value={`link-to-api.onrender.com/${link.shortURL}`}
               bgColor="#ff00"
               style={{
                 width: "100%",
@@ -52,9 +52,9 @@ export const LinkShortCard: FC<Props> = ({ link }) => {
             side="right"
             content="copy"
             className="relative right-[-35px]"
-            clipboardText={`linkto.com/${link.shortURL}`}
+            clipboardText={`link-to-api.onrender.com/${link.shortURL}`}
           >
-            {`linkto.com/${link.shortURL}`}
+            {`link-to-api.onrender.com/${link.shortURL}`}
             <IoCopyOutline
               size={20}
               className="absolute top-1 right-[-35px] text-mainDeepDarked group-hover:text-pinkRed transition-colors hidden sm:block"
