@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
 export const ShortButton: FC<Props> = ({ isLoading, ...props }) => {
   return (
     <button
-      className="relative inline-flex h-12 w-[170px] overflow-hidden rounded-r-lg p-[1px] focus:ring-2 z-10 outline-none"
+      className="relative inline-flex h-[50px] w-[170px] overflow-hidden rounded-r-lg p-[2px] focus:ring-2 z-10 outline-none"
       {...props}
     >
       <span
