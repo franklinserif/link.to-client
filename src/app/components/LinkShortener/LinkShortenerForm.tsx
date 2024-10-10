@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ShortButton } from "@components/LinkShortener/ShortButton";
-import { Input } from "@components/Form/Input";
+import { InputIntelligent } from "@components/Form/InputIntelligent";
 import { ErrorMessage } from "@components/LinkShortener/ErrorMessage";
 import { linkShortenerFormSchema } from "@schemas/linkShortenerForm";
 import { HTTPLinks } from "@http/links";
@@ -46,13 +46,14 @@ export const LinkShortenerForm: FC = () => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <fieldset className="flex w-full">
-        <Input
+        <InputIntelligent
           type="text"
+          prefix="https://"
           register={register("linkInput")}
           error={errors?.linkInput}
           required
-          placeholder="write your link e.g https://www.johndoe.com"
-          className="z-10 px-5 py-3 rounded-l-full w-full max-w-[700px] text-white bg-secondary/70 shadow-inner outline-none placeholder:italic placeholder:text-main"
+          placeholder="https://www.subdomain.example.com/services/web-development/mobile-development"
+          className="z-10 px-5 py-3 rounded-l-full w-full text-white bg-secondary/70 shadow-inner outline-none placeholder:italic placeholder:text-main focus:border-none"
         />
         <ShortButton isLoading={isLoading} />
       </fieldset>
