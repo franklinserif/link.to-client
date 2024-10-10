@@ -1,7 +1,7 @@
 import { Link } from "@interfaces/entities";
 
 export abstract class HTTPLinks {
-  static host = process.env.HOST || "http://localhost:3000";
+  static host = process.env.NEXT_PUBLIC_HOSTNAME || "http://localhost:3000";
 
   static async getLink(id: string): Promise<[Link | null, Error | null]> {
     const response = await fetch(`${this.host}/api/links/${id}`, {
